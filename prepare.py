@@ -38,9 +38,19 @@ def prep_telco(telco_df):
     '''
     This function will clean the the telco dataset
     '''
-    telco_df = telco_df.drop("Unnamed: 0" ,axis=1)
+    
+    dummy_df = pd.get_dummies(telco_df[['multiple_lines',
+                                 'online_security',
+                                 'online_backup',
+                                 'device_protection', 
+                                 'tech_support',
+                                 'streaming_tv',
+                                 'streaming_movies', 
+                                 'contract_type', 
+                                 'internet_service_type',
+                                 'payment_type']],
+                              drop_first=True)
 
-    dummy_df = pd.get_dummies((telco_df.gender), drop_first=True)
     telco_df = pd.concat([telco_df, dummy_df], axis=1)
     return telco_df
 
