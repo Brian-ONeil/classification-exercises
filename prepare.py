@@ -26,7 +26,7 @@ def prep_titanic(titanic_df):
     '''
     titanic_df = titanic_df.drop("Unnamed: 0" ,axis=1)
     
-    titanic_df = titanic_df.drop(columns =['embark_town','class','age','deck'])
+    titanic_df = titanic_df.drop(columns =['embark_town','class','deck'])
 
     titanic_df.embarked = titanic_df.embarked.fillna(value='S')
 
